@@ -1,7 +1,6 @@
 package com.testemaxima.maxima.dao;
 
 import com.testemaxima.maxima.model.Usuario;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,23 @@ public class UsuarioDAO {
         this.connection = connection;
     }
 
-    //metodo para cadastrar usuario com insert
+    // Método para cadastrar usuario
     public void cadastrarUsuario(Usuario usuario) throws SQLException {
+        // Verificar se a idade do usuário é 18 ou mais
+        if (usuario.getIdade() < 18) {
+            throw new IllegalArgumentException("Apenas usuários com 18 anos ou mais podem ser cadastrados.");
+        }
+
+        // Verificar se o CPF já está cadastrado
+        if (cpfJaCadastrado(usuario.getCpf())) {
+            throw new IllegalArgumentException("O CPF informado já está cadastrado.");
+        }
+
+        // Gerar um número de conta único (pode ser um valor aleatório ou baseado no id do usuário)
+        String numeroConta = gerarNumeroConta(usuario);
+        usuario.setNumeroConta(numeroConta);
+
+        // Inserir o usuário no banco de dados
         String sql = "INSERT INTO usuario (nome, idade, cpf, numeroConta, saldo) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, usuario.getNome());
@@ -27,7 +41,7 @@ public class UsuarioDAO {
         }
     }
 
-    //metodo para buscar todos os usuario com id com selet
+    // Método para buscar um usuário por id
     public Usuario buscarPorId(Long id) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -41,7 +55,7 @@ public class UsuarioDAO {
         return null;
     }
 
-    //buscar todos os usuarios
+    // Método para buscar todos os usuários
     public List<Usuario> buscarTodos() throws SQLException {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuario";
@@ -54,7 +68,7 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    //verificar se o CFP ja esta cadastrado
+    // Verificar se o CPF já está cadastrado
     public boolean cpfJaCadastrado(String cpf) throws SQLException {
         String sql = "SELECT COUNT(*) FROM usuario WHERE cpf = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -66,6 +80,12 @@ public class UsuarioDAO {
             }
         }
         return false;
+    }
+
+    // Gerar um número de conta único (aqui é uma implementação com prefixo + id)
+    private String gerarNumeroConta(Usuario usuario) {
+        // No caso, vamos gerar o número da conta com um prefixo "ACC" e o id do usuário
+        return "ACC" + System.currentTimeMillis();
     }
 
     private Usuario mapUsuario(ResultSet rs) throws SQLException {

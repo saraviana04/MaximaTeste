@@ -1,10 +1,13 @@
 package com.testemaxima.maxima.model;
 
 import jakarta.persistence.*;
+
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
 public class Transacao {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
