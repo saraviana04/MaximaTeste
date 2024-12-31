@@ -10,9 +10,9 @@ import java.sql.SQLException;
 @RequestMapping("/transferencias")
 public class TransferenciaController {
 
-    // Conectar com o banco de dados (substitua os parâmetros com suas credenciais)
+    // Conectar com o banco de dados H2 (já configurado no application.properties)
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/seu_banco", "usuario", "senha");
+        return DriverManager.getConnection("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1", "sa", "");
     }
 
     @PostMapping("/realizar")

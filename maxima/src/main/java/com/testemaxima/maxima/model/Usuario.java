@@ -1,36 +1,20 @@
 package com.testemaxima.maxima.model;
 
-import jakarta.persistence.*;
-
-@Entity
 public class Usuario {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
+    private int id;
     private String nome;
-
-    @Column(nullable = false)
     private int idade;
-
-    @Column(nullable = false, unique = true)
     private String cpf;
+    private String numeroConta;  // Campo para armazenar o número da conta
+    private double saldo;         // Campo para armazenar o saldo
 
-    @Column(nullable = false, unique = true)
-    private String numeroConta;
-
-    @Column(nullable = false)
-    private double saldo = 0.0;
-
-    // Getters and Setters
-    public Long getId() {
+    // Getters e Setters
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
