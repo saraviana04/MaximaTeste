@@ -8,80 +8,80 @@
 
 -Realização de transferências bancárias
 
--Instruções para Executar o Projeto
+### Instruções para Executar o Projeto
 
 ### 1. Configuração do Ambiente
 
--Java: Certifique-se de ter o JDK 11 ou superior instalado.
+**-Java**: Certifique-se de ter o JDK 11 ou superior instalado.
 
--Maven: Garanta que o Maven esteja configurado em sua máquina.
+**-Maven**: Garanta que o Maven esteja configurado em sua máquina.
 
 ### 2. Executando o Projeto
 
-Clone o repositório:
+###  1.Clone o repositório:
 
-git clone <url-do-repositorio>
-cd <pasta-do-projeto>
+>git clone <url-do-repositorio>
+>cd <pasta-do-projeto>
 
-Compile e execute o projeto:
+###  2.Compile e execute o projeto:
 
-mvn spring-boot:run
+>mvn spring-boot:run
 
-Acesse a aplicação no navegador ou via ferramentas como Postman:
+###  3.Acesse a aplicação no navegador ou via ferramentas como Postman:
 
-API Base: http://localhost:8080
+**API Base**: http://localhost:8080
 
-Console do banco de dados H2: http://localhost:8080/h2-console
+**Console do banco de dados H2**: http://localhost:8080/h2-console
 
-JDBC URL: jdbc:h2:mem:testdb
+**>JDBC URL**: jdbc:h2:mem:testdb
 
-Username: sa
+**>Username**: sa
 
-Password: (deixe em branco)
+**>Password**: (deixe em branco)
 
-Decisões Técnicas e Justificativas
+### Decisões Técnicas e Justificativas
 
-Banco de Dados em Memória (H2)
+**Banco de Dados em Memória (H2)**
 
-Motivo: Facilitar o desenvolvimento e testes rápidos, eliminando a necessidade de configuração de um banco de dados externo.
+**Motivo**: Facilitar o desenvolvimento e testes rápidos, eliminando a necessidade de configuração de um banco de dados externo.
 
-Arquitetura do Projeto
+### Arquitetura do Projeto
 
-O projeto segue uma organização baseada em pacotes para separação de responsabilidades:
+>O projeto segue uma organização baseada em pacotes para separação de responsabilidades:
 
-Config: Configurações gerais do projeto.
+**Config**: Configurações gerais do projeto.
 
-Controller: Camada que expõe as APIs REST.
+**Controller**: Camada que expõe as APIs REST.
 
-DAO: Camada de acesso ao banco de dados.
+**DAO**: Camada de acesso ao banco de dados.
 
-DTO: Objetos de Transferência de Dados para requisições e respostas.
+**DTO**: Objetos de Transferência de Dados para requisições e respostas.
 
-Model: Representação das entidades do sistema.
+**Model**: Representação das entidades do sistema.
 
-Service: Contém a lógica de negócios.
+**Service**: Contém a lógica de negócios.
 
-Validações de Regras de Negócio
+### Validações de Regras de Negócio
 
-Cadastro de usuário: Idade mínima de 18 anos, CPF único.
+**Cadastro de usuário**: Idade mínima de 18 anos, CPF único.
 
-Transferências: Saldo suficiente e verificação de contas existentes.
+**Transferências**: Saldo suficiente e verificação de contas existentes.
 
-Status HTTP
+### Status HTTP
 
-A API utiliza códigos HTTP apropriados:
+>A API utiliza códigos HTTP apropriados:
 
-200 OK: Requisição bem-sucedida.
+-200 OK: Requisição bem-sucedida.
 
-404 Not Found: Recurso não encontrado.
+-404 Not Found: Recurso não encontrado.
 
-400 Bad Request: Dados inválidos ou erros de validação.
+-400 Bad Request: Dados inválidos ou erros de validação.
 
-Endpoints Disponíveis
+### Endpoints Disponíveis
 
-1. Cadastro de Usuário
+>1. Cadastro de Usuário
 
-URL: POST /api/users
+>URL: POST /api/users
 
 Corpo da Requisição:
 
@@ -91,22 +91,22 @@ Corpo da Requisição:
   "cpf": "12345678901"
 }
 
-Resposta de Sucesso:
+-Resposta de Sucesso:
 
 {
   "mensagem": "Usuário cadastrado com sucesso!",
   "numeroConta": "123456"
 }
 
-Validações:
+-Validações:
 
 Idade mínima de 18 anos.
 
 CPF deve ser único no sistema.
 
-2. Consulta de Usuários
+### 2. Consulta de Usuários
 
-Buscar por ID
+>Buscar por ID
 
 URL: GET /api/users/{id}
 
@@ -120,7 +120,7 @@ Exemplo de Resposta:
   "saldo": 1000.0
 }
 
-Listar Todos
+>Listar Todos
 
 URL: GET /api/users
 
@@ -136,7 +136,7 @@ Exemplo de Resposta:
   }
 ]
 
-3. Transferência entre Contas
+### 3. Transferência entre Contas
 
 URL: POST /transacoes/realizar
 
@@ -154,37 +154,37 @@ Resposta de Sucesso:
   "mensagem": "Transferência realizada com sucesso!"
 }
 
-Validações:
+ > Validações:
 
-Ambas as contas devem existir.
+-Ambas as contas devem existir.
 
-Saldo suficiente na conta de origem.
+-Saldo suficiente na conta de origem.
 
-Regras de Negócio
+### Regras de Negócio
 
-Cadastro de Usuários
+**Cadastro de Usuários**
 
-Nome, idade, CPF e número da conta são obrigatórios.
+-Nome, idade, CPF e número da conta são obrigatórios.
 
-Idade mínima de 18 anos.
+-Idade mínima de 18 anos.
 
-CPF deve ser único no sistema.
+-CPF deve ser único no sistema.
 
-Consulta de Usuários
+**Consulta de Usuários**
 
-Buscar por ID ou listar todos os usuários cadastrados.
+-Buscar por ID ou listar todos os usuários cadastrados.
 
-A resposta inclui: nome, idade, CPF, número da conta e saldo.
+-A resposta inclui: nome, idade, CPF, número da conta e saldo.
 
-Transferências
+**Transferências**
 
-Somente entre contas existentes.
+-Somente entre contas existentes.
 
-Saldo do remetente deve ser maior ou igual ao valor da transferência.
+-Saldo do remetente deve ser maior ou igual ao valor da transferência.
 
-Contas inexistentes resultam em erro 404 Not Found.
+-Contas inexistentes resultam em erro 404 Not Found.
 
-Considerações Finais
+### Considerações Finais
 
 Este projeto foi desenvolvido para demonstrar:
 
