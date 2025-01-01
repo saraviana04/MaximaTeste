@@ -1,6 +1,6 @@
-API de Gerenciamento de Usuários e Transações Financeiras
+## API de Gerenciamento de Usuários e Transações Financeiras
 
-Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
+>Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
 
 -Cadastro de usuários
 
@@ -8,16 +8,26 @@ Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banc
 
 -Realização de transferências bancárias
 
+
 -Instruções para Executar o Projeto
 
-1. Configuração do Ambiente
+### Instruções para Executar o Projeto
 
+
+### 1. Configuração do Ambiente
+
+<<<<<<< HEAD
 -Java: Certifique-se de ter o JDK 11 ou superior instalado.
 
 -Maven: Garanta que o Maven esteja configurado em sua máquina.
+**-Java**: Certifique-se de ter o JDK 11 ou superior instalado.
 
-2. Executando o Projeto
+**-Maven**: Garanta que o Maven esteja configurado em sua máquina.
 
+
+### 2. Executando o Projeto
+
+<<<<<<< HEAD
 -Clone o repositório:
 
 -git clone <url-do-repositorio>
@@ -47,41 +57,71 @@ Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banc
 
 -Arquitetura do Projeto
 
-O projeto segue uma organização baseada em pacotes para separação de responsabilidades:
+###  1.Clone o repositório:
 
-Config: Configurações gerais do projeto.
+>git clone url-do-repositorio
+cd pasta-do-projeto
 
-Controller: Camada que expõe as APIs REST.
+###  2.Compile e execute o projeto:
 
-DAO: Camada de acesso ao banco de dados.
+>mvn spring-boot:run
 
-DTO: Objetos de Transferência de Dados para requisições e respostas.
+###  3.Acesse a aplicação no navegador ou via ferramentas como Postman:
 
-Model: Representação das entidades do sistema.
+**API Base**: http://localhost:8080
 
-Service: Contém a lógica de negócios.
+**Console do banco de dados H2**: http://localhost:8080/h2-console
 
-Validações de Regras de Negócio
+**>JDBC URL**: jdbc:h2:mem:testdb
 
-Cadastro de usuário: Idade mínima de 18 anos, CPF único.
+**>Username**: sa
 
-Transferências: Saldo suficiente e verificação de contas existentes.
+**>Password**: (deixe em branco)
 
-Status HTTP
+### Decisões Técnicas e Justificativas
 
-A API utiliza códigos HTTP apropriados:
+**Banco de Dados em Memória (H2)**
 
-200 OK: Requisição bem-sucedida.
+**Motivo**: Facilitar o desenvolvimento e testes rápidos, eliminando a necessidade de configuração de um banco de dados externo.
 
-404 Not Found: Recurso não encontrado.
+### Arquitetura do Projeto
 
-400 Bad Request: Dados inválidos ou erros de validação.
 
-Endpoints Disponíveis
+>O projeto segue uma organização baseada em pacotes para separação de responsabilidades:
 
-1. Cadastro de Usuário
+**Config**: Configurações gerais do projeto.
 
-URL: POST /api/users
+**Controller**: Camada que expõe as APIs REST.
+
+**DAO**: Camada de acesso ao banco de dados.
+
+**DTO**: Objetos de Transferência de Dados para requisições e respostas.
+
+**Model**: Representação das entidades do sistema.
+
+**Service**: Contém a lógica de negócios.
+
+### Validações de Regras de Negócio
+
+**Cadastro de usuário**: Idade mínima de 18 anos, CPF único.
+
+**Transferências**: Saldo suficiente e verificação de contas existentes.
+
+### Status HTTP
+
+>A API utiliza códigos HTTP apropriados:
+
+-200 OK: Requisição bem-sucedida.
+
+-404 Not Found: Recurso não encontrado.
+
+-400 Bad Request: Dados inválidos ou erros de validação.
+
+### Endpoints Disponíveis
+
+>1. Cadastro de Usuário
+
+>URL: POST /api/users
 
 Corpo da Requisição:
 
@@ -91,22 +131,22 @@ Corpo da Requisição:
   "cpf": "12345678901"
 }
 
-Resposta de Sucesso:
+-Resposta de Sucesso:
 
 {
   "mensagem": "Usuário cadastrado com sucesso!",
   "numeroConta": "123456"
 }
 
-Validações:
+-Validações:
 
 Idade mínima de 18 anos.
 
 CPF deve ser único no sistema.
 
-2. Consulta de Usuários
+### 2. Consulta de Usuários
 
-Buscar por ID
+>Buscar por ID
 
 URL: GET /api/users/{id}
 
@@ -120,7 +160,7 @@ Exemplo de Resposta:
   "saldo": 1000.0
 }
 
-Listar Todos
+>Listar Todos
 
 URL: GET /api/users
 
@@ -136,7 +176,7 @@ Exemplo de Resposta:
   }
 ]
 
-3. Transferência entre Contas
+### 3. Transferência entre Contas
 
 URL: POST /transacoes/realizar
 
@@ -154,42 +194,40 @@ Resposta de Sucesso:
   "mensagem": "Transferência realizada com sucesso!"
 }
 
-Validações:
+ > Validações:
 
-Ambas as contas devem existir.
+-Ambas as contas devem existir.
 
-Saldo suficiente na conta de origem.
+-Saldo suficiente na conta de origem.
 
-Regras de Negócio
+### Regras de Negócio
 
-Cadastro de Usuários
+**Cadastro de Usuários**
 
-Nome, idade, CPF e número da conta são obrigatórios.
+-Nome, idade, CPF e número da conta são obrigatórios.
 
-Idade mínima de 18 anos.
+-Idade mínima de 18 anos.
 
-CPF deve ser único no sistema.
+-CPF deve ser único no sistema.
 
-Consulta de Usuários
+**Consulta de Usuários**
 
-Buscar por ID ou listar todos os usuários cadastrados.
+-Buscar por ID ou listar todos os usuários cadastrados.
 
-A resposta inclui: nome, idade, CPF, número da conta e saldo.
+-A resposta inclui: nome, idade, CPF, número da conta e saldo.
 
-Transferências
+**Transferências**
 
-Somente entre contas existentes.
+-Somente entre contas existentes.
 
-Saldo do remetente deve ser maior ou igual ao valor da transferência.
+-Saldo do remetente deve ser maior ou igual ao valor da transferência.
 
-Contas inexistentes resultam em erro 404 Not Found.
+-Contas inexistentes resultam em erro 404 Not Found.
 
-Considerações Finais
+### Considerações Finais
 
 Este projeto foi desenvolvido para demonstrar:
 
-Boas práticas no desenvolvimento de APIs REST com Spring Boot.
-
-Validações robustas de regras de negócio.
+Boas práticas no desenvolvimento de APIs REST com Spring Boot e JAVA.
 
 Uso de um banco de dados em memória (H2) para simplificar o processo de desenvolvimento e testes.
