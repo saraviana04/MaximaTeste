@@ -1,22 +1,22 @@
-API de Gerenciamento de Usuários e Transações Financeiras
+## API de Gerenciamento de Usuários e Transações Financeiras
 
 >Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
 
-Cadastro de usuários
+-Cadastro de usuários
 
-Consulta de informações de usuários
+-Consulta de informações de usuários
 
-Realização de transferências bancárias
+-Realização de transferências bancárias
 
-Instruções para Executar o Projeto
+-Instruções para Executar o Projeto
 
-1. Configuração do Ambiente
+### 1. Configuração do Ambiente
 
-Java: Certifique-se de ter o JDK 11 ou superior instalado.
+-Java: Certifique-se de ter o JDK 11 ou superior instalado.
 
-Maven: Garanta que o Maven esteja configurado em sua máquina.
+-Maven: Garanta que o Maven esteja configurado em sua máquina.
 
-2. Executando o Projeto
+### 2. Executando o Projeto
 
 Clone o repositório:
 
