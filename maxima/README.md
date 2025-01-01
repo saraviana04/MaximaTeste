@@ -20,8 +20,8 @@
 
 ###  1.Clone o repositório:
 
->git clone <url-do-repositorio>
->cd <pasta-do-projeto>
+>git clone url-do-repositorio
+cd pasta-do-projeto
 
 ###  2.Compile e execute o projeto:
 
