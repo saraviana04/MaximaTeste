@@ -19,7 +19,7 @@ public class UsuarioController {
         return DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
     }
 
-    // Método para cadastrar um novo usuário e apenas com 18 ou mais
+    // Método para cadastrar um novo usuário, e apenas com 18 ou mais
     @PostMapping
     public String cadastrarUsuario(@RequestBody Usuario usuario) {
         // Validar a idade do usuário antes de qualquer operação

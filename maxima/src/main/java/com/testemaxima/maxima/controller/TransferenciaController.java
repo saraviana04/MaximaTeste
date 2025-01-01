@@ -16,7 +16,6 @@ public class TransferenciaController {
 
     private final TransferenciaService transferenciaService;
 
-    // Construtor com injeção de dependência do serviço
     public TransferenciaController() {
         try {
             Connection connection = getConnection();

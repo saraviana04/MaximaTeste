@@ -16,10 +16,10 @@
 
 ### 1. Configuração do Ambiente
 
-<<<<<<< HEAD
 -Java: Certifique-se de ter o JDK 11 ou superior instalado.
 
 -Maven: Garanta que o Maven esteja configurado em sua máquina.
+
 **-Java**: Certifique-se de ter o JDK 11 ou superior instalado.
 
 **-Maven**: Garanta que o Maven esteja configurado em sua máquina.
@@ -27,11 +27,10 @@
 
 ### 2. Executando o Projeto
 
-<<<<<<< HEAD
 -Clone o repositório:
 
--git clone <url-do-repositorio>
--cd <pasta-do-projeto>
+-git clone -----url do repositorio
+-cd -----pastado projeto
 
 -Compile e execute o projeto:
 
