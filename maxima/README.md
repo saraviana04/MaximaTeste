@@ -1,6 +1,6 @@
 API de Gerenciamento de Usuários e Transações Financeiras
 
-Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
+>Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
 
 Cadastro de usuários
 
