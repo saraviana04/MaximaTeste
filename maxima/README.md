@@ -2,50 +2,50 @@ API de Gerenciamento de Usuários e Transações Financeiras
 
 Este projeto é uma API simples desenvolvida com Spring Boot que utiliza um banco de dados em memória (H2). A API oferece funcionalidades para:
 
-Cadastro de usuários
+-Cadastro de usuários
 
-Consulta de informações de usuários
+-Consulta de informações de usuários
 
-Realização de transferências bancárias
+-Realização de transferências bancárias
 
-Instruções para Executar o Projeto
+-Instruções para Executar o Projeto
 
 1. Configuração do Ambiente
 
-Java: Certifique-se de ter o JDK 11 ou superior instalado.
+-Java: Certifique-se de ter o JDK 11 ou superior instalado.
 
-Maven: Garanta que o Maven esteja configurado em sua máquina.
+-Maven: Garanta que o Maven esteja configurado em sua máquina.
 
 2. Executando o Projeto
 
-Clone o repositório:
+-Clone o repositório:
 
-git clone <url-do-repositorio>
-cd <pasta-do-projeto>
+-git clone <url-do-repositorio>
+-cd <pasta-do-projeto>
 
-Compile e execute o projeto:
+-Compile e execute o projeto:
 
-mvn spring-boot:run
+-mvn spring-boot:run
 
-Acesse a aplicação no navegador ou via ferramentas como Postman:
+-Acesse a aplicação no navegador ou via ferramentas como Postman:
 
-API Base: http://localhost:8080
+-API Base: http://localhost:8080
 
-Console do banco de dados H2: http://localhost:8080/h2-console
+-Console do banco de dados H2: http://localhost:8080/h2-console
 
-JDBC URL: jdbc:h2:mem:testdb
+-JDBC URL: jdbc:h2:mem:testdb
 
-Username: sa
+-Username: sa
 
-Password: (deixe em branco)
+-Password: (deixe em branco)
 
-Decisões Técnicas e Justificativas
+-Decisões Técnicas e Justificativas
 
-Banco de Dados em Memória (H2)
+-Banco de Dados em Memória (H2)
 
-Motivo: Facilitar o desenvolvimento e testes rápidos, eliminando a necessidade de configuração de um banco de dados externo.
+-Motivo: Facilitar o desenvolvimento e testes rápidos, eliminando a necessidade de configuração de um banco de dados externo.
 
-Arquitetura do Projeto
+-Arquitetura do Projeto
 
 O projeto segue uma organização baseada em pacotes para separação de responsabilidades:
 
