@@ -78,7 +78,7 @@ public class TransferenciaService {
         }
 
         // Registrar a transação
-        String insertTransacao = "INSERT INTO transacao (contaOrigem, contaDestino, valor, dataTransacao) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
+        String insertTransacao = "INSERT INTO transacao (CONTA_ORIGEM, CONTA_DESTINO, valor, DATA_TRANSACAO) VALUES (?, ?, ?, CURRENT_TIMESTAMP)";
         try (PreparedStatement stmt = connection.prepareStatement(insertTransacao)) {
             stmt.setString(1, contaOrigem);
             stmt.setString(2, contaDestino);
