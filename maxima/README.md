@@ -188,8 +188,6 @@ Resposta de Sucesso:
 
 Este projeto foi desenvolvido para demonstrar:
 
-Boas práticas no desenvolvimento de APIs REST com Spring Boot.
-
-Validações robustas de regras de negócio.
+Boas práticas no desenvolvimento de APIs REST com Spring Boot e JAVA.
 
 Uso de um banco de dados em memória (H2) para simplificar o processo de desenvolvimento e testes.
