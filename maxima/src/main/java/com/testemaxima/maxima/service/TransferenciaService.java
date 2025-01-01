@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class TransferenciaService {
 
-    private Connection connection;
+    private final Connection connection;
 
     public TransferenciaService(Connection connection) {
         this.connection = connection;
@@ -16,8 +16,11 @@ public class TransferenciaService {
     public boolean realizarTransferencia(String contaOrigem, String contaDestino, double valor) {
         try {
             // Verificar se as contas existem
-            if (!contaExiste(contaOrigem) || !contaExiste(contaDestino)) {
-                return false;
+            if (!contaExiste(contaOrigem)) {
+                throw new IllegalArgumentException("Conta de origem não encontrada: " + contaOrigem);
+            }
+            if (!contaExiste(contaDestino)) {
+                throw new IllegalArgumentException("Conta de destino não encontrada: " + contaDestino);
             }
 
             // Verificar se a conta de origem tem saldo suficiente
@@ -27,10 +30,10 @@ public class TransferenciaService {
 
             // Realizar a transferência
             realizarAtualizacaoSaldos(contaOrigem, contaDestino, valor);
-
             return true;
+
         } catch (SQLException e) {
-            e.printStackTrace(); // Log no servidor
+            e.printStackTrace();
             return false;
         }
     }
