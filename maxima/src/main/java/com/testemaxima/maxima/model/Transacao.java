@@ -1,13 +1,10 @@
 package com.testemaxima.maxima.model;
 
 import jakarta.persistence.*;
-
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
 public class Transacao {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +22,7 @@ public class Transacao {
     @Column(nullable = false)
     private LocalDateTime dataTransacao;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -66,4 +63,3 @@ public class Transacao {
         this.dataTransacao = dataTransacao;
     }
 }
-

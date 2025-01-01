@@ -6,10 +6,9 @@ public class Usuario {
     private String nome;
     private int idade;
     private String cpf;
-    private String numeroConta;  // Campo para armazenar o número da conta
-    private double saldo;         // Campo para armazenar o saldo
+    private String numeroConta;
+    private double saldo;
 
-    // Getters e Setters
     public int getId() {
         return id;
     }

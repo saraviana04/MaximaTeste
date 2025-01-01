@@ -30,7 +30,7 @@ public class UsuarioController {
         try (Connection connection = getConnection()) {
             UsuarioDAO usuarioDAO = new UsuarioDAO(connection);
 
-            // Verificar se o CPF já existe
+            // Verifica se o CPF já existe
             if (usuarioDAO.cpfExiste(usuario.getCpf())) {
                 return "Erro: CPF já cadastrado.";
             }

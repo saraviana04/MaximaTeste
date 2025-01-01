@@ -49,7 +49,7 @@ public class UsuarioDAO {
             statement.setString(1, usuario.getNome());
             statement.setInt(2, usuario.getIdade());
             statement.setString(3, usuario.getCpf());
-            statement.setString(4, numeroConta); // Inserindo o número da conta gerado
+            statement.setString(4, numeroConta);
             statement.setDouble(5, usuario.getSaldo());
 
             // Executando a inserção no banco de dados
@@ -69,13 +69,13 @@ public class UsuarioDAO {
                     usuario.setNome(rs.getString("nome"));
                     usuario.setIdade(rs.getInt("idade"));
                     usuario.setCpf(rs.getString("cpf"));
-                    usuario.setNumeroConta(rs.getString("numeroConta")); // Adicionando o campo numeroConta
-                    usuario.setSaldo(rs.getDouble("saldo")); // Garantindo que o saldo seja mapeado
+                    usuario.setNumeroConta(rs.getString("numeroConta"));
+                    usuario.setSaldo(rs.getDouble("saldo"));
                     return usuario;
                 }
             }
         }
-        return null; // Retorna null se não encontrar o usuário
+        return null;
     }
 
     // Método para listar todos os usuários
@@ -90,8 +90,8 @@ public class UsuarioDAO {
                 usuario.setNome(rs.getString("nome"));
                 usuario.setIdade(rs.getInt("idade"));
                 usuario.setCpf(rs.getString("cpf"));
-                usuario.setNumeroConta(rs.getString("numeroConta")); // Adicionando o campo numeroConta
-                usuario.setSaldo(rs.getDouble("saldo")); // Garantindo que o saldo seja mapeado
+                usuario.setNumeroConta(rs.getString("numeroConta"));
+                usuario.setSaldo(rs.getDouble("saldo"));
                 usuarios.add(usuario);
             }
         }

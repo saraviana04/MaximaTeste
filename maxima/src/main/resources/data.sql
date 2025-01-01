@@ -18,12 +18,13 @@ CREATE TABLE IF NOT EXISTS transacao (
 
 -- Inserindo usuários de exemplo
 INSERT INTO usuario (nome, idade, cpf, numeroConta, saldo) VALUES
-('João Silva', 25, '12345678910', '123456', 1000.0),
-('Maria Oliveira', 30, '98765432100', '987654', 1500.0),
-('Carlos Souza', 35, '55555555555', '555555', 2000.0);
+('João Silva', 25, '12345678910', '12345', 1000.0),
+('Maria Oliveira', 30, '98765432100', '67890', 1500.0),
+('Carlos Souza', 35, '55555555555', '54321', 2000.0);
 
 -- Inserindo transações de exemplo
 INSERT INTO transacao (contaOrigem, contaDestino, valor, dataTransacao) VALUES
-('123456', '987654', 200.0, CURRENT_TIMESTAMP),
-('987654', '555555', 150.0, CURRENT_TIMESTAMP),
-('555555', '123456', 300.0, CURRENT_TIMESTAMP);
+('12345', '67890', 200.0, CURRENT_TIMESTAMP),
+('67890', '54321', 150.0, CURRENT_TIMESTAMP),
+('54321', '12345', 300.0, CURRENT_TIMESTAMP);
+
